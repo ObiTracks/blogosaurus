@@ -1,0 +1,120 @@
+h1 {
+  text-align: center;
+  color: #3D348B;
+  font-size: 50px;
+}
+
+
+body {
+  font-size: 17;
+  background-image: url("malibu.jpg");
+
+}
+
+
+.blogSections {
+    display: inline-block;
+    vertical-align: top;
+    border-style: outset;
+    border-color: #F35B04;
+    border-width: 7px;
+    border-radius: 4%;
+    margin-block-start: 10px;
+    margin-block-end: 0px;
+    margin-inline-start: 1%;
+    margin-inline-end: 1%;
+    width: 20%;
+    height: 500px;
+    background-color: #cfc ;
+    background: rgba(241, 135, 1, 0.8);
+}
+
+.blogSections p {
+  text-align: left;
+  font-size: 20px;
+  margin-inline-start: 5%;
+  margin-inline-end: 5%;
+
+}
+
+.menudiv {
+  overflow: scroll;
+  background-color: black;
+}
+
+.menudiv a {
+  float: left;
+  color: #f2f2f2;
+  padding-left: 10%;
+  text-align: center;
+  padding: 1% 13.5%;
+  font-size: 17px;
+}
+
+#myimage {
+  width:500px;
+  height:600px;
+  margin-top: 40px;
+  margin-left: 35%;
+  margin-right: 30%;
+}
+
+#main_title {
+  display: block;
+  font-size: 90px;
+  font-family: 'Montserrat', san-serif;
+  margin-top: 10px;
+}
+
+#all_about_me {
+  margin-left: 10%;
+}
+
+
+
+
+from google.appengine.ext import ndb
+
+class Song(ndb.Model):
+  title = ndb.StringProperty()
+  artist = ndb.StringProperty()
+  play_count = ndb.IntegerProperty()
+
+new_song = Song(title="Kill this Love", artist="Blackpink", play_count=10)
+print new_song
+
+
+
+
+
+
+
+
+class Movie(ndb.Model):
+    mov_title = ndb.StringProperty()
+    runtime = ndb.IntegerProperty()
+    user_rating = ndb.IntegerProperty()
+    media_type = ndb.StringProperty()
+
+new_movie1 = Movie(mov_title = "Twilight", runtime = 101, user_rating = 5, media_type = "Film")
+new_movie2 = Movie(mov_title = "Avengers", runtime = 160, user_rating = 3, media_type = "Film")
+new_movie3 = Movie(mov_title = "Star Wars", runtime = 200, user_rating = 0), media_type = "Film"
+
+
+movie1_key = movie1.put()
+movie2_key = movie2.put()
+movie3_key = movie3.put()
+
+query = Movie.query(movie.rating<8)
+print (highest_rating_query)
+
+highest_rating_query = movie.query().order(-movie.rating).get()
+print(highest_rating_query)
+
+#Get the count of the movies
+num_movies = 0
+for movies in movie.query().fetch():
+  num_movies += 1
+print num_movies
+
+print (new_movie3)
