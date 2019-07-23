@@ -48,7 +48,6 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/blogentry', BlogEntryHandler),
     ('/blogsubmission', BlogSubmissionHandler)
-
 ], debug=True)
 
 """
